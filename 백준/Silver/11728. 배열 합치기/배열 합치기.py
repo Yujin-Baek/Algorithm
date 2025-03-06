@@ -5,5 +5,4 @@ arr2 = list(map(int, input().split()))
 
 answer = arr1 + arr2
 answer.sort()
-
 print(*answer)
