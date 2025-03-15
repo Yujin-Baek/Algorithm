@@ -4,20 +4,20 @@ input = sys.stdin.readline
 
 def dfs(start):
   visited[start] = True
-  for next in graph[start]:
-    if not visited[next]:
-      dfs(next)
+  for i in range(1, n+1):
+    if graph[start][i] == 1 and not visited[i]:
+      dfs(i)
 
 n, m = map(int, input().split())
 
-graph = [[] for _ in range(n+1)]
+graph = [[0 for _ in range(n+1)] for _ in range(n+1)]
 
 visited = [False] * (n+1)
 
 for i in range(m):
   u,v = map(int, input().split())
-  graph[u].append(v)
-  graph[v].append(u)
+  graph[u][v] = 1
+  graph[v][u] = 1
 
 count = 0
 
